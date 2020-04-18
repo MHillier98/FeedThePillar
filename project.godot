@@ -30,6 +30,10 @@ window/vsync/use_vsync=false
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
+[gui]
+
+theme/custom_font="res://Resources/m5x7Font.tres"
+
 [importer_defaults]
 
 texture={

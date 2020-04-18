@@ -19,6 +19,22 @@ __meta__ = {
 }
 draw_colour = Color( 0, 1, 0.316667, 1 )
 
+[node name="Label" type="Label" parent="UI"]
+margin_left = 8.0
+margin_top = 4.0
+margin_right = 288.0
+margin_bottom = 145.0
+text = "Theme: KEEP IT ALIVE
+Sub-theme: YOU ARE THE POWER SOURCE
+
+1- 'score' increases as you're closer to it?
+2- enemies should force you to move away from the pillar
+3- 
+4- "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Pillar" parent="." instance=ExtResource( 3 )]
 position = Vector2( 320, 192 )
 scale = Vector2( 2, 2 )
