@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Images/PillarAccentsWhite.png" type="Texture" id=1]
-[ext_resource path="res://Images/PillarFront.png" type="Texture" id=2]
-[ext_resource path="res://Images/PillarAccentsGrey.png" type="Texture" id=3]
+[ext_resource path="res://Images/PillarV2Front.png" type="Texture" id=1]
+[ext_resource path="res://Images/PillarV2AccentsGrey.png" type="Texture" id=2]
+[ext_resource path="res://Images/PillarV2AccentsWhite.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Pillar.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=1]
@@ -22,14 +22,14 @@ tracks/0/keys = {
 }
 
 [node name="Pillar" type="Sprite"]
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 script = ExtResource( 4 )
 
 [node name="PillarAccentsBackground" type="Sprite" parent="."]
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="PillarAccents" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Fade"

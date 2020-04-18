@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PillarFront.png-655b548c30614579c7db04519d5f8ce8.stex"
+path="res://.import/PillarV2AccentsGrey.png-67abbc355119a226d8732843c1474f05.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/PillarFront.png"
-dest_files=[ "res://.import/PillarFront.png-655b548c30614579c7db04519d5f8ce8.stex" ]
+source_file="res://Images/PillarV2AccentsGrey.png"
+dest_files=[ "res://.import/PillarV2AccentsGrey.png-67abbc355119a226d8732843c1474f05.stex" ]
 
 [params]
 
