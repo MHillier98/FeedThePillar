@@ -1,26 +1,36 @@
 extends KinematicBody2D
 
-export (int) var speed = 400
 
-var velocity = Vector2()
+const UP = Vector2(0, -1)
+const GRAVITY = 20
+const ACCELERATION = 50
+const MAX_SPEED = 220
+const JUMP_HEIGHT = -250
+
+var motion = Vector2()
 
 onready var animationPlayer = $AnimationPlayer
 
-func get_input():
-	velocity = Vector2()
-	if Input.is_action_pressed('right'):
-		velocity.x += 1
-	if Input.is_action_pressed('left'):
-		velocity.x -= 1
-#	if Input.is_action_pressed('down'):
-#		velocity.y += 1
-#	if Input.is_action_pressed('up'):
-#		velocity.y -= 1
-	velocity = velocity.normalized() * speed
-
 func _physics_process(delta):
-	get_input()
-	velocity = move_and_slide(velocity)
+	motion.y += GRAVITY
+	var friction = false
+	
+	if Input.is_action_pressed('right'):
+		motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
+	elif Input.is_action_pressed('left'):
+		motion.x = max(motion.x - ACCELERATION, -MAX_SPEED)
+	else:
+		friction = true
+	
+	if is_on_floor():
+		if Input.is_action_pressed('up'):
+			motion.y = JUMP_HEIGHT
+		if friction == true:
+			motion.x = lerp(motion.x, 0, 0.2)
+	else:
+		motion.x = lerp(motion.x, 0, 0.05)
+
+	motion = move_and_slide(motion, UP)
 	
 	if get_global_mouse_position().x < global_position.x:
 		animationPlayer.play("Look Left")
