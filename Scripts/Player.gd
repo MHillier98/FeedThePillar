@@ -11,7 +11,7 @@ var motion = Vector2()
 
 onready var animationPlayer = $AnimationPlayer
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	motion.y += GRAVITY
 	var friction = false
 	
