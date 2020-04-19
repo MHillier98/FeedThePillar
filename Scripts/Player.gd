@@ -81,6 +81,16 @@ func get_points():
 	return points
 
 
+func add_points(new_points):
+	points += new_points
+	update_text()
+
+
 func update_text():
 	if pointsLabel != null:
 		pointsLabel.text = str(get_points())
+
+
+func _on_Area2D_body_entered(body):
+	print(body.name)
+	pass # Replace with function body.
