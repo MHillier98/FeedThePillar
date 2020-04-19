@@ -95,5 +95,5 @@ quality/driver/driver_name="GLES2"
 quality/2d/use_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-environment/default_clear_color=Color( 0.0980392, 0.0901961, 0.0862745, 1 )
+environment/default_clear_color=Color( 0.215686, 0.447059, 0.941176, 1 )
 environment/default_environment="res://Resources/default_env.tres"

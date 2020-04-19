@@ -220,10 +220,12 @@ __meta__ = {
 [node name="AnimatedHead" type="AnimatedSprite" parent="HeadCollisionShape"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 13 )
+speed_scale = 2.0
 
 [node name="AnimatedHeadAccent" type="AnimatedSprite" parent="HeadCollisionShape"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 39 )
+speed_scale = 2.0
 
 [node name="BodyCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2( 4, 2 )
@@ -235,10 +237,12 @@ __meta__ = {
 [node name="AnimatedBody" type="AnimatedSprite" parent="BodyCollisionShape"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 30 )
+speed_scale = 2.0
 
 [node name="AnimatedBodyAccent" type="AnimatedSprite" parent="BodyCollisionShape"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 48 )
+speed_scale = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/Look Left" = SubResource( 3 )

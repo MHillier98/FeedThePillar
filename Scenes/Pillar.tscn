@@ -18,7 +18,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 14 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.627451 ), Color( 1, 1, 1, 0.866667 ), Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 0.654902 ), Color( 1, 1, 1, 0.196078 ), Color( 1, 1, 1, 0.54902 ), Color( 1, 1, 1, 0.0862745 ), Color( 1, 1, 1, 0.254902 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 0.627451 ), Color( 1, 0, 0, 0.866667 ), Color( 1, 0, 0, 0.392157 ), Color( 1, 0, 0, 0.654902 ), Color( 1, 0, 0, 0.196078 ), Color( 1, 0, 0, 0.54902 ), Color( 1, 0, 0, 0.0862745 ), Color( 0.184314, 0.188235, 0.0823529, 0.254902 ), Color( 1, 0, 0, 0 ), Color( 1, 0, 0, 1 ) ]
 }
 
 [node name="Pillar" type="Sprite"]
@@ -29,6 +29,7 @@ script = ExtResource( 4 )
 texture = ExtResource( 2 )
 
 [node name="PillarAccents" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.92549 )
 texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

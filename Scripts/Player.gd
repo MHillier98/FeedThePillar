@@ -63,8 +63,8 @@ func _physics_process(_delta):
 	else:
 		get_node("HeadCollisionShape/AnimatedHead").frame = 0
 		get_node("HeadCollisionShape/AnimatedHeadAccent").frame = 0
-		get_node("BodyCollisionShape/AnimatedBody").frame = 0
-		get_node("BodyCollisionShape/AnimatedBodyAccent").frame = 0
+		get_node("BodyCollisionShape/AnimatedBody").frame = 3
+		get_node("BodyCollisionShape/AnimatedBodyAccent").frame = 3
 		
 		get_node("HeadCollisionShape/AnimatedHead").stop()
 		get_node("HeadCollisionShape/AnimatedHeadAccent").stop()
