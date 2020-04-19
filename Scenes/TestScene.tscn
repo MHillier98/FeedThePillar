@@ -9,7 +9,7 @@
 [node name="World" type="Node"]
 script = ExtResource( 4 )
 
-[node name="UI" type="Control" parent="."]
+[node name="PowerLine" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 5 )
@@ -19,11 +19,21 @@ __meta__ = {
 }
 draw_colour = Color( 0, 1, 0.316667, 1 )
 
-[node name="Notes" type="Label" parent="UI"]
-margin_left = 150.653
-margin_top = -158.747
-margin_right = 502.653
-margin_bottom = -17.7471
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Notes" type="Label" parent="CanvasLayer/HUD"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -176.0
+margin_top = -109.0
+margin_right = 176.0
 text = "Theme: KEEP IT ALIVE
 Sub-theme: YOU ARE THE POWER SOURCE
 
@@ -31,6 +41,17 @@ Sub-theme: YOU ARE THE POWER SOURCE
 2- how does the player get more points?
 3- show the player accent colour as a backpack/line on character?
 4- ???"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Label" parent="CanvasLayer/HUD"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -101.5
+margin_right = 101.5
+margin_bottom = 13.0
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -56,5 +77,3 @@ tile_data = PoolIntArray( 589801, -1073741824, 2, 589802, 0, 393221, 589803, 536
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]

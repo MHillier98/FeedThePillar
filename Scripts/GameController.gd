@@ -2,23 +2,32 @@ extends Node
 
 onready var player = $Player
 onready var pillar = $Pillar
-#onready var pointLabel = $UI/Points
-
-#export(int) var pillar_points = 0
+onready var timerPanel = $CanvasLayer/HUD/Timer
 
 var timer = 0
 
-func _process(_delta):
+var time = 0
+var time_mult = 1.0
+var paused = false
+
+func _ready():
+	set_process(true)
+
+func _process(delta):
 	if timer > 500:
 		update_points()
 		timer = 0
 	timer += 1
+	
+	if not paused:
+		time += delta * time_mult
+		timerPanel.text = "Survival Time: " + str(int(time)) + "s"
 
 func update_points():
 	var player_pos = player.global_position
-	var fire_pos = pillar.global_position
-	if player_pos.distance_to(fire_pos) < 350:
-		var distance = clamp(player_pos.distance_to(fire_pos)/20, 0, 100)
+	var pillar_pos = pillar.global_position
+	if player_pos.distance_to(pillar_pos) < 350:
+		var distance = clamp(player_pos.distance_to(pillar_pos)/20, 0, 100)
 		var points = int(clamp(20 - distance, 0, 20))
 		
 		var old_player_points = player.get_points()
@@ -27,6 +36,4 @@ func update_points():
 		
 		var points_difference = old_player_points - player_points
 		if points_difference > 0:
-			pillar.add_points(points_difference)
-#			pillar_points += points_difference
-#			pointLabel.text = str(pillar_points)
+			pillar.add_points(points_difference
