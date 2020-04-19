@@ -12,8 +12,8 @@
 script = ExtResource( 4 )
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 320, 192 )
-scale = Vector2( 10, 10 )
+position = Vector2( 320, 1 )
+scale = Vector2( 15, 10 )
 texture = ExtResource( 7 )
 
 [node name="PowerLine" type="Control" parent="."]
