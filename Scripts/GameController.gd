@@ -2,9 +2,9 @@ extends Node
 
 onready var player = $Player
 onready var pillar = $Pillar
-onready var pointLabel = $UI/Points
+#onready var pointLabel = $UI/Points
 
-export(int) var pillar_points = 0
+#export(int) var pillar_points = 0
 
 var timer = 0
 
@@ -27,5 +27,6 @@ func update_points():
 		
 		var points_difference = old_player_points - player_points
 		if points_difference > 0:
-			pillar_points += points_difference
-			pointLabel.text = str(pillar_points)
+			pillar.add_points(points_difference)
+#			pillar_points += points_difference
+#			pointLabel.text = str(pillar_points)

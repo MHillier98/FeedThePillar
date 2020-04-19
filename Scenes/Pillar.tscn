@@ -34,3 +34,14 @@ texture = ExtResource( 3 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Fade"
 anims/Fade = SubResource( 1 )
+
+[node name="PointsLabel" type="Label" parent="."]
+margin_left = -36.0
+margin_top = -46.498
+margin_right = 36.0
+margin_bottom = -33.3372
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

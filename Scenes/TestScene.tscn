@@ -19,29 +19,18 @@ __meta__ = {
 }
 draw_colour = Color( 0, 1, 0.316667, 1 )
 
-[node name="Label" type="Label" parent="UI"]
-margin_left = 8.0
-margin_top = 4.0
-margin_right = 288.0
-margin_bottom = 145.0
+[node name="Notes" type="Label" parent="UI"]
+margin_left = 150.653
+margin_top = -158.747
+margin_right = 502.653
+margin_bottom = -17.7471
 text = "Theme: KEEP IT ALIVE
 Sub-theme: YOU ARE THE POWER SOURCE
 
-1- 'score' increases as you're closer to it?
-2- enemies should force you to move away from the pillar
-3- 
-4- "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Points" type="Label" parent="UI"]
-margin_left = 286.0
-margin_top = 104.0
-margin_right = 355.0
-margin_bottom = 125.0
-align = 1
-valign = 1
+1- enemies should force you to move away from the pillar!
+2- how does the player get more points?
+3- show the player accent colour as a backpack/line on character?
+4- ???"
 __meta__ = {
 "_edit_use_anchors_": false
 }
