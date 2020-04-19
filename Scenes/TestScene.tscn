@@ -12,9 +12,12 @@
 script = ExtResource( 4 )
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 320, 1 )
-scale = Vector2( 15, 10 )
+position = Vector2( 320, 186 )
+scale = Vector2( 5, 5 )
 texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="PowerLine" type="Control" parent="."]
 anchor_right = 1.0
@@ -52,10 +55,9 @@ margin_bottom = -21.0
 text = "Theme: KEEP IT ALIVE
 Sub-theme: YOU ARE THE POWER SOURCE
 
-1- enemies should force you to move away from the pillar!
-2- how does the player get more points?
-3- show the player accent colour as a backpack/line on character?
-4- ???"
+1- enemies should force you to move away from the pillar
+2- drain life from ghosts, and transfer it back into the pillar
+3- ?"
 __meta__ = {
 "_edit_use_anchors_": false
 }
