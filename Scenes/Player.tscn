@@ -187,7 +187,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0.2 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -30 ) ]
+"values": [ Vector2( 4, -26 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -203,14 +203,14 @@ tracks/0/keys = {
 "times": PoolRealArray( 0.2, 16.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 7, -30 ), Vector2( -9, -54 ) ]
+"values": [ Vector2( 7, -26 ), Vector2( -9, -54 ) ]
 }
 
 [node name="PlayerKinematicBody" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="HeadCollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2( 7, -30 )
+position = Vector2( -2, -26 )
 shape = SubResource( 1 )
 script = ExtResource( 3 )
 __meta__ = {
