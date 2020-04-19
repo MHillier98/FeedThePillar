@@ -25,6 +25,7 @@ draw_colour = Color( 0, 1, 0.316667, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -32,8 +33,9 @@ __meta__ = {
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -176.0
-margin_top = -109.0
+margin_top = -130.0
 margin_right = 176.0
+margin_bottom = -21.0
 text = "Theme: KEEP IT ALIVE
 Sub-theme: YOU ARE THE POWER SOURCE
 

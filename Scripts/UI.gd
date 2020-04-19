@@ -29,8 +29,9 @@ func _draw():
 		var g = (255 * (100 - distance)) / 100
 		draw_colour = Color(r / 255, g / 255, 0)
 		
-		draw_line(player_pos, pillar_pos, Color.darkgray, 7, true) # set a background / outline
+		draw_line(player_pos, pillar_pos, Color(0.14, 0.14, 0.14), 7, true) # set a background / outline
 		draw_line(player_pos, pillar_pos, draw_colour, 6, true) # set the line's colour
 		
 		pillar.modulate = Color(draw_colour.r, draw_colour.g, draw_colour.b, pillar.get_modulate().a) # set the pillar's accent colour
-		player.find_node("BodySprite").modulate = draw_colour # set the player's body colour
+		player.find_node("AnimatedHeadAccent").modulate = draw_colour # set the player's body colour
+		player.find_node("AnimatedBodyAccent").modulate = draw_colour # set the player's body colour

@@ -27,8 +27,8 @@ func _physics_process(_delta):
 		friction = true
 	
 	if is_on_floor():
-		if Input.is_action_pressed('up'):
-			motion.y = JUMP_HEIGHT
+#		if Input.is_action_pressed('up'):
+#			motion.y = JUMP_HEIGHT
 		if friction == true:
 			motion.x = lerp(motion.x, 0, 0.2)
 	else:
@@ -38,12 +38,38 @@ func _physics_process(_delta):
 	
 	if get_global_mouse_position().x < global_position.x:
 		animationPlayer.play("Look Left")
-		get_node("HeadCollisionShape/HeadSprite").set_flip_v(true)
-		yield(animationPlayer, "animation_finished")
+		get_node("HeadCollisionShape/AnimatedHead").set_flip_v(true)
+		get_node("HeadCollisionShape/AnimatedHeadAccent").set_flip_v(true)
+#		yield(animationPlayer, "animation_finished")
 	else:
 		animationPlayer.play("Look Right")
-		get_node("HeadCollisionShape/HeadSprite").set_flip_v(false)
-		yield(animationPlayer, "animation_finished")
+		get_node("HeadCollisionShape/AnimatedHead").set_flip_v(false)
+		get_node("HeadCollisionShape/AnimatedHeadAccent").set_flip_v(false)
+#		yield(animationPlayer, "animation_finished")
+	
+	if motion.x < 0:
+		get_node("BodyCollisionShape/AnimatedBody").set_flip_h(true)
+		get_node("BodyCollisionShape/AnimatedBodyAccent").set_flip_h(true)
+	else:
+		get_node("BodyCollisionShape/AnimatedBody").set_flip_h(false)
+		get_node("BodyCollisionShape/AnimatedBodyAccent").set_flip_h(false)
+	
+#	print(int(round(motion.x)))
+	if int(round(motion.x)) != 0:
+		get_node("HeadCollisionShape/AnimatedHead").play("default")
+		get_node("HeadCollisionShape/AnimatedHeadAccent").play("default")
+		get_node("BodyCollisionShape/AnimatedBody").play("default")
+		get_node("BodyCollisionShape/AnimatedBodyAccent").play("default")
+	else:
+		get_node("HeadCollisionShape/AnimatedHead").frame = 0
+		get_node("HeadCollisionShape/AnimatedHeadAccent").frame = 0
+		get_node("BodyCollisionShape/AnimatedBody").frame = 0
+		get_node("BodyCollisionShape/AnimatedBodyAccent").frame = 0
+		
+		get_node("HeadCollisionShape/AnimatedHead").stop()
+		get_node("HeadCollisionShape/AnimatedHeadAccent").stop()
+		get_node("BodyCollisionShape/AnimatedBody").stop()
+		get_node("BodyCollisionShape/AnimatedBodyAccent").stop()
 
 
 func set_points(new_points):
