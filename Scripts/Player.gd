@@ -1,5 +1,11 @@
 extends KinematicBody2D
 
+
+export(int) var points = 0 setget set_points, get_points
+
+onready var pointsLabel = $PointsLabel
+onready var animationPlayer = $AnimationPlayer
+
 const UP = Vector2(0, -1)
 const GRAVITY = 20
 const ACCELERATION = 50
@@ -8,22 +14,6 @@ const JUMP_HEIGHT = -250
 
 var motion = Vector2()
 
-export(int) var points = 0 setget set_points, get_points
-
-onready var pointsLabel = $PointsLabel
-onready var animationPlayer = $AnimationPlayer
-
-func set_points(new_points):
-	points = clamp(new_points, 0, 9999999)
-	update_text()
-
-func get_points():
-	return points
-
-func update_text():
-	if pointsLabel != null:
-		pointsLabel.text = str(get_points())
-	
 
 func _physics_process(_delta):
 	motion.y += GRAVITY
@@ -54,3 +44,17 @@ func _physics_process(_delta):
 		animationPlayer.play("Look Right")
 		get_node("HeadCollisionShape/HeadSprite").set_flip_v(false)
 		yield(animationPlayer, "animation_finished")
+
+
+func set_points(new_points):
+	points = clamp(new_points, 0, 9999999)
+	update_text()
+
+
+func get_points():
+	return points
+
+
+func update_text():
+	if pointsLabel != null:
+		pointsLabel.text = str(get_points())

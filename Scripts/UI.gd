@@ -1,9 +1,10 @@
 extends Control
 
+export(Color) var draw_colour
+
 var player
 var pillar
 
-export(Color) var draw_colour
 
 func _ready():
 	var main = get_tree().current_scene
@@ -11,8 +12,10 @@ func _ready():
 	pillar = main.find_node("PillarAccents")
 	set_process(true)
 
+
 func _process(_delta):
 	update()
+
 
 func _draw():
 	var player_pos = player.global_position
