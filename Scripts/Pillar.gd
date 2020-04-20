@@ -15,6 +15,9 @@ func _ready():
 
 
 func _process(_delta):
+	if points == 0:
+		get_tree().paused = true
+	
 	if timer > 500:
 		points = clamp(points - 4, 0, 9999999)
 		update_text()

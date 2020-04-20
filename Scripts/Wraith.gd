@@ -13,7 +13,7 @@ var main_scene
 var player
 var power_line
 
-var direction_modifier = -2
+var direction_modifier = 3
 var timer = 0
 var mouse_hovered = false
 var paused = false
@@ -59,7 +59,7 @@ func default():
 
 
 func drain():
-	print(points)
+#	print(points)
 	animatedSprite.play("drain")
 	points -= 10
 	player.add_points(10)
@@ -80,9 +80,9 @@ func move_self(delta):
 	var move_x = rand_range(-80, 250)
 	
 	if global_position.x > 1200:
-		direction_modifier = -2
+		direction_modifier = -3
 	elif global_position.x < -600:
-		direction_modifier = 2
+		direction_modifier = 3
 	
 	var movement = Vector2(move_x * delta * direction_modifier, 0)
 	self.translate(movement)

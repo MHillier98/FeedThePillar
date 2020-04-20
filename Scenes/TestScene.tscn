@@ -30,6 +30,22 @@ __meta__ = {
 }
 draw_colour = Color( 0, 1, 0.316667, 1 )
 
+[node name="Notes" type="Label" parent="PowerLine"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -170.388
+margin_top = 52.5446
+margin_right = 171.612
+margin_bottom = 113.545
+text = "KEEP IT ALIVE
+Feed the pillar with energy by standing near it!
+Collect energy from wraiths by hovering your mouse over them...
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Light" type="Light2D" parent="."]
 position = Vector2( 320, 192 )
 scale = Vector2( 1.214, 4 )
@@ -44,24 +60,7 @@ anchor_right = 0.5
 margin_left = -320.0
 margin_right = 320.0
 margin_bottom = 3.0
-mouse_filter = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Notes" type="Label" parent="CanvasLayer/HUD"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -245.442
-margin_top = -272.357
-margin_right = 297.558
-margin_bottom = -120.357
-text = "Theme: KEEP IT ALIVE
-Sub-theme: YOU ARE THE POWER SOURCE
-
-1 - you need to feed the pillar with energy by standing near it
-2 - you must collect energy from the wraiths by hovering your mouse on them
-"
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }

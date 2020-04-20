@@ -51,7 +51,7 @@ func update_points():
 
 func _on_Wraith_died():
 	player.clear_wraith()
-	print("we need another wraith!")
+#	print("we need another wraith!")
 	var wraith = spawn_wraith()
 	player.set_wraith(wraith)
 	power_line.clear_target()
