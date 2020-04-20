@@ -21,8 +21,8 @@ func _ready():
 	set_process(true)
 
 
-func _process(delta):
-	if timer > 500:
+func _physics_process(delta):
+	if timer > (450 * delta):
 		update_points()
 		timer = 0
 	

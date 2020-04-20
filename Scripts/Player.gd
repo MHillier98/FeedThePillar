@@ -23,10 +23,11 @@ var wraith
 func _ready():
 	main_scene = get_tree().current_scene
 	wraith = main_scene.find_node("Wraith")
+	update_text()
 	set_process(true)
 
 
-func _process(_delta):
+func _physics_process(_delta):
 	if wraith != null:
 		if wraith.global_position.x > global_position.x + 100:
 			show_arrow_right()
@@ -36,9 +37,7 @@ func _process(_delta):
 			hide_arrows()
 	else:
 		hide_arrows()
-
-
-func _physics_process(_delta):
+	
 	motion.y += GRAVITY
 	var friction = false
 	

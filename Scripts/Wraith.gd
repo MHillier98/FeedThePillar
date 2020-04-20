@@ -1,7 +1,7 @@
 extends Node2D
 
 
-export(int) var points = 100 setget set_points, get_points
+export(int) var points = 60 setget set_points, get_points
 
 onready var area2d = $Area2D
 onready var animatedSprite = $Area2D/AnimatedSprite
@@ -13,7 +13,7 @@ var main_scene
 var player
 var power_line
 
-var direction_modifier = 3
+var direction_modifier = 2
 var timer = 0
 var mouse_hovered = false
 var paused = false
@@ -35,11 +35,11 @@ func _ready():
 	area2d.input_pickable = true
 
 
-func _process(delta):
+func _physics_process(delta):
 	if paused == false:
 		move_self(delta)
 		
-		if timer > 400:
+		if timer > (350 * delta):
 			if points > 0:
 				if mouse_hovered:
 					drain()
@@ -59,10 +59,9 @@ func default():
 
 
 func drain():
-#	print(points)
 	animatedSprite.play("drain")
-	points -= 10
-	player.add_points(10)
+	points -= 2
+	player.add_points(2)
 #	yield(animatedSprite, "animation_finished")
 
 
@@ -80,9 +79,9 @@ func move_self(delta):
 	var move_x = rand_range(-80, 250)
 	
 	if global_position.x > 1200:
-		direction_modifier = -3
+		direction_modifier = -2
 	elif global_position.x < -600:
-		direction_modifier = 3
+		direction_modifier = 2
 	
 	var movement = Vector2(move_x * delta * direction_modifier, 0)
 	self.translate(movement)

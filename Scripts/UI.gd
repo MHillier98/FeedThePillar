@@ -19,7 +19,7 @@ func _ready():
 	set_process(true)
 
 
-func _process(_delta):
+func _physics_process(_delta):
 	update()
 
 
