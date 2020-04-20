@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Deadlock.ogg-9e84f079c67ce343fb4260a3e2fa60ab.oggstr"
+
+[deps]
+
+source_file="res://Audio/Deadlock.ogg"
+dest_files=[ "res://.import/Deadlock.ogg-9e84f079c67ce343fb4260a3e2fa60ab.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
