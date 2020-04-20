@@ -276,11 +276,13 @@ __meta__ = {
 }
 
 [node name="RightArrow" type="Sprite" parent="."]
+modulate = Color( 0.756863, 0.756863, 0.756863, 0.392157 )
 position = Vector2( 30, -5 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 
 [node name="LeftArrow" type="Sprite" parent="."]
+modulate = Color( 0.756863, 0.756863, 0.756863, 0.392157 )
 position = Vector2( -30, -5 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
