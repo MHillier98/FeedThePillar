@@ -3,8 +3,12 @@ extends Node
 
 onready var player = $Player
 onready var pillar = $Pillar
-onready var timerPanel = $CanvasLayer/HUD/Timer
+onready var timer_panel = $CanvasLayer/HUD/Timer
 onready var power_line = $PowerLine
+onready var notes = $PowerLine/Notes
+onready var game_over = $CanvasLayer/HUD/GameOver
+onready var restart_button = $CanvasLayer/HUD/RestartButton
+
 
 var new_wraith = preload("res://Scenes/Wraith.tscn")
 
@@ -18,6 +22,9 @@ var paused = true
 func _ready():
 	var wraith = spawn_wraith()
 	player.set_wraith(wraith)
+	notes.show()
+	game_over.hide()
+	restart_button.hide()
 	set_process(true)
 
 
@@ -30,7 +37,7 @@ func _physics_process(delta):
 
 	if not paused:
 		time += delta * time_mult
-		timerPanel.text = "Survival Time: " + str(int(time)) + "s"
+		timer_panel.text = "Survival Time: " + str(int(time)) + "s"
 
 
 func update_points():
@@ -71,3 +78,18 @@ func spawn_wraith():
 	new_wraith_instance.position = Vector2(pos_x, pos_y)
 	add_child(new_wraith_instance)
 	return new_wraith_instance
+
+
+func _on_Pillar_end_game():
+#	yield(get_tree().create_timer(2), "timeout")
+	notes.hide()
+	game_over.show()
+	restart_button.show()
+#	get_tree().paused = false
+
+
+func _on_RestartButton_button_up():
+	var new_scene = get_tree().reload_current_scene()
+	get_tree().paused = false
+	if new_scene != 0: # Error.OK
+		print(new_scene)

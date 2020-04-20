@@ -5,6 +5,8 @@ export(int) var points = 0 setget set_points, get_points
 
 onready var pointsLabel = $PointsLabel
 
+signal end_game
+
 var timer = 0
 var started = false
 
@@ -20,10 +22,7 @@ func _physics_process(delta):
 	if started == true:
 		if points == 0:
 			get_tree().paused = true
-			yield(get_tree().create_timer(5), "timeout")
-			var new_scene = get_tree().reload_current_scene()
-			if new_scene == 0: # Error.OK
-				get_tree().paused = false
+			emit_signal("end_game")
 
 		if timer > (450 * delta):
 			points = clamp(points - 1, 0, 9999999)
