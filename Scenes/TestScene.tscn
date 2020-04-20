@@ -23,6 +23,7 @@ __meta__ = {
 [node name="PowerLine" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true,
@@ -39,10 +40,13 @@ energy = 1.5
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" type="Control" parent="CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -320.0
+margin_right = 320.0
+margin_bottom = 3.0
+mouse_filter = 1
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -64,6 +68,7 @@ __meta__ = {
 }
 
 [node name="Timer" type="Label" parent="CanvasLayer/HUD"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -101.5
@@ -80,7 +85,6 @@ scale = Vector2( 2, 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 200, 235 )
-points = 100
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 0, -62 )
@@ -97,4 +101,5 @@ __meta__ = {
 }
 
 [node name="Wraith" parent="." instance=ExtResource( 8 )]
-position = Vector2( 136.927, 171.73 )
+position = Vector2( -164.042, 143.15 )
+points = 100
