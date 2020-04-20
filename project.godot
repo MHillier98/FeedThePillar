@@ -15,8 +15,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="KeepItAlive"
-run/main_scene="res://Scenes/TestScene.tscn"
+config/name="Feed The Pillar"
+run/main_scene="res://Scenes/GameScene.tscn"
 config/icon="res://Images/icon.png"
 config/2d/gles2_use_nvidia_rect_flicker_workaround=false
 
