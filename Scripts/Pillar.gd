@@ -19,6 +19,7 @@ func _process(_delta):
 		points = clamp(points - 1, 0, 9999999)
 		update_text()
 		timer = 0
+	
 	timer += 1
 
 

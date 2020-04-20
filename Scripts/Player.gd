@@ -31,6 +31,7 @@ func _physics_process(_delta):
 #			motion.y = JUMP_HEIGHT
 		if friction == true:
 			motion.x = lerp(motion.x, 0, 0.2)
+		
 	else:
 		motion.x = lerp(motion.x, 0, 0.05)
 
@@ -54,7 +55,6 @@ func _physics_process(_delta):
 		get_node("BodyCollisionShape/AnimatedBody").set_flip_h(false)
 		get_node("BodyCollisionShape/AnimatedBodyAccent").set_flip_h(false)
 	
-#	print(int(round(motion.x)))
 	if int(round(motion.x)) != 0:
 		get_node("HeadCollisionShape/AnimatedHead").play("default")
 		get_node("HeadCollisionShape/AnimatedHeadAccent").play("default")
@@ -89,8 +89,3 @@ func add_points(new_points):
 func update_text():
 	if pointsLabel != null:
 		pointsLabel.text = str(get_points())
-
-
-func _on_Area2D_body_entered(body):
-	print(body.name)
-	pass # Replace with function body.

@@ -41,10 +41,11 @@ func _process(delta):
 				# yield(animatedSprite, "animation_finished")
 			else:
 				animatedSprite.play("default")
+			
 		timer = 0
 	else:
 		timer += 1
-
+	
 	if points <= 0:
 		animatedSprite.play("death")
 		yield(animatedSprite, "animation_finished")
@@ -59,7 +60,7 @@ func move_self(delta):
 		direction_modifier = -2
 	elif global_position.x < -600:
 		direction_modifier = 2
-
+	
 	var movement = Vector2(move_x * delta * direction_modifier, 0)
 	self.translate(movement)
 

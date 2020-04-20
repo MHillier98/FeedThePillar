@@ -54,6 +54,7 @@ func draw_pillar_player_light():
 		player.find_node("AnimatedHeadAccent").modulate = draw_colour # set the player's body colour
 		player.find_node("AnimatedBodyAccent").modulate = draw_colour # set the player's body colour
 
+
 func draw_wraith_player_light(wraith):
 	if wraith != null:
 		var player_pos = player.global_position
