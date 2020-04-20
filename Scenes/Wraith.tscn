@@ -93,7 +93,7 @@ script = ExtResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 12 )
-frame = 2
+frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -107,3 +107,4 @@ shape = SubResource( 13 )
 autoplay = "Hover"
 anims/Hover = SubResource( 14 )
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]

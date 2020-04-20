@@ -5,9 +5,13 @@ export(int) var points = 300 setget set_points, get_points
 
 onready var animatedSprite = $Area2D/AnimatedSprite
 
-var being_clicked = false
+var main_scene
 var player
+var power_line
+
+var direction_modifier = -2
 var timer = 0
+var mouse_hovered = false
 
 func set_points(new_points):
 	points = clamp(new_points, 0, 9999999)
@@ -18,17 +22,20 @@ func get_points():
 
 
 func _ready():
-	var main = get_tree().current_scene
-	player = main.find_node("Player")
+	main_scene = get_tree().current_scene
+	player = main_scene.find_node("Player")
+	power_line = main_scene.find_node("PowerLine")
 	$Area2D.input_pickable = true
 
 
-func _process(_delta):
-	if timer > 600:
+func _process(delta):
+	move_self(delta)
+	
+	if timer > 400:
 		if points > 0:
-			if being_clicked:
+			if mouse_hovered:
 				animatedSprite.play("drain")
-				print(points)
+#				print(points)
 				points -= 10
 				player.add_points(10)
 				# yield(animatedSprite, "animation_finished")
@@ -37,18 +44,31 @@ func _process(_delta):
 		timer = 0
 	else:
 		timer += 1
-	
+
 	if points <= 0:
 		animatedSprite.play("death")
 		yield(animatedSprite, "animation_finished")
 		queue_free()
 
 
-func _on_Area2D_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton:
-		if event.pressed:
-			print("clicked down")
-			being_clicked = true
-		elif not event.pressed:
-			print("clicked up")
-			being_clicked = false
+func move_self(delta):
+	randomize()
+	var move_x = rand_range(-80, 250)
+	
+	if global_position.x > 1200:
+		direction_modifier = -2
+	elif global_position.x < -600:
+		direction_modifier = 2
+
+	var movement = Vector2(move_x * delta * direction_modifier, 0)
+	self.translate(movement)
+
+
+func _on_Area2D_input_event(_viewport, _event, _shape_idx):
+	power_line.set_target("Wraith")
+	mouse_hovered = true
+
+
+func _on_Area2D_mouse_exited():
+	power_line.set_target("")
+	mouse_hovered = false

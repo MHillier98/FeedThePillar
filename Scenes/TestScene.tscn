@@ -53,16 +53,16 @@ __meta__ = {
 [node name="Notes" type="Label" parent="CanvasLayer/HUD"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -176.0
-margin_top = -130.0
-margin_right = 176.0
-margin_bottom = -21.0
+margin_left = -245.442
+margin_top = -272.357
+margin_right = 297.558
+margin_bottom = -120.357
 text = "Theme: KEEP IT ALIVE
 Sub-theme: YOU ARE THE POWER SOURCE
 
-1- enemies should force you to move away from the pillar
-2- drain life from ghosts, and transfer it back into the pillar
-3- ?"
+1 - you need to feed the pillar with energy by standing near it
+2 - you must collect energy from the wraiths by hovering your mouse on them
+"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -101,5 +101,5 @@ __meta__ = {
 }
 
 [node name="Wraith" parent="." instance=ExtResource( 8 )]
-position = Vector2( -164.042, 143.15 )
+position = Vector2( 4.78448, 144.117 )
 points = 100

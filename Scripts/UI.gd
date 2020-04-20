@@ -1,16 +1,19 @@
 extends Control
 
+
 export(Color) var draw_colour
 
+var main_scene
 var player
 var pillar
 var pillar_light
+var target = ""
 
 func _ready():
-	var main = get_tree().current_scene
-	player = main.find_node("Player")
-	pillar = main.find_node("PillarAccents")
-	pillar_light = main.find_node("Light")
+	main_scene = get_tree().current_scene
+	player = main_scene.find_node("Player")
+	pillar = main_scene.find_node("PillarAccents")
+	pillar_light = main_scene.find_node("Light")
 	set_process(true)
 
 
@@ -18,7 +21,19 @@ func _process(_delta):
 	update()
 
 
+func set_target(new_target):
+	target = new_target
+
+
 func _draw():
+	draw_pillar_player_light()
+	
+	if target == "Wraith":
+		var wraith = main_scene.find_node("Wraith")
+		draw_wraith_player_light(wraith)
+
+
+func draw_pillar_player_light():
 	var player_pos = player.global_position
 	var pillar_pos = pillar.global_position
 	
@@ -38,3 +53,9 @@ func _draw():
 		
 		player.find_node("AnimatedHeadAccent").modulate = draw_colour # set the player's body colour
 		player.find_node("AnimatedBodyAccent").modulate = draw_colour # set the player's body colour
+
+func draw_wraith_player_light(wraith):
+	if wraith != null:
+		var player_pos = player.global_position
+		var wraith_pos = Vector2(wraith.global_position.x, wraith.global_position.y - 16)
+		draw_line(player_pos, wraith_pos, Color(36 / 255, 35 / 255, 38 / 255), 7, true)
