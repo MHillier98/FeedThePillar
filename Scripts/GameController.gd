@@ -92,9 +92,10 @@ func _on_Pillar_end_game():
 #	get_tree().paused = false
 
 
-func _on_RestartButton_button_up():
+func _on_RestartButton_pressed():
 	camera.shake(0.2, 8, 10)
 	var new_scene = get_tree().reload_current_scene()
 	get_tree().paused = false
-	if new_scene != 0: # Error.OK
-		print(new_scene)
+	print(new_scene)
+	print(get_tree().paused)
+#	if new_scene != 0: # Error.OK

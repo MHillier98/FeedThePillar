@@ -59,7 +59,7 @@ margin_top = 21.0
 margin_right = 190.0
 margin_bottom = 102.0
 custom_styles/normal = ExtResource( 9 )
-text = "KEEP IT ALIVE
+text = "FEED THE PILLAR! - KEEP IT ALIVE!
 Keep the pillar alive by feeding it energy - just stand near it!
 Gather energy from wraiths by hovering your mouse over them...
 Move with Arrow Keys or A/D
@@ -186,5 +186,5 @@ position = Vector2( 311.81, 157.232 )
 stream = ExtResource( 17 )
 autoplay = true
 attenuation = 2.0
-[connection signal="button_up" from="CanvasLayer/HUD/RestartButton" to="." method="_on_RestartButton_button_up"]
+[connection signal="pressed" from="CanvasLayer/HUD/RestartButton" to="." method="_on_RestartButton_pressed"]
 [connection signal="end_game" from="Pillar" to="." method="_on_Pillar_end_game"]

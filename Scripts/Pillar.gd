@@ -8,7 +8,7 @@ onready var pointsLabel = $PointsLabel
 signal end_game
 
 var timer = 0
-var started = false
+var game_started = false
 
 
 func _ready():
@@ -16,13 +16,16 @@ func _ready():
 	anim.set_loop(true)
 	update_text()
 	get_node("AnimationPlayer").play("Fade")
+	game_started = false
+#	yield(get_tree().create_timer(2), "timeout")
 
 
 func _physics_process(delta):
-	if started == true:
-		if points == 0:
+	if game_started == true:
+		if points < 1:
 			pointsLabel.hide()
 			get_tree().paused = true
+			game_started = false
 			emit_signal("end_game")
 
 		if timer > (450 * delta):
@@ -35,7 +38,6 @@ func _physics_process(delta):
 
 func set_points(new_points):
 	points = clamp(new_points, 0, 9999999)
-	started = true
 	update_text()
 
 
@@ -45,7 +47,6 @@ func get_points():
 
 func add_points(new_points):
 	points += new_points
-	started = true
 	update_text()
 
 
@@ -53,6 +54,7 @@ func update_text():
 	if pointsLabel != null:
 		var points = get_points()
 		if points > 0:
+			game_started = true
 			pointsLabel.text = str(points)
 		else:
 			pointsLabel.text = ""
