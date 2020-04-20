@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/ScutTileSet.tres" type="TileSet" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Scripts/UI.gd" type="Script" id=5]
 [ext_resource path="res://Images/PillarV2Light.png" type="Texture" id=6]
 [ext_resource path="res://Images/background.png" type="Texture" id=7]
-[ext_resource path="res://Scenes/Wraith.tscn" type="PackedScene" id=8]
 
 [node name="World" type="Node"]
 script = ExtResource( 4 )
@@ -68,7 +67,6 @@ __meta__ = {
 }
 
 [node name="Timer" type="Label" parent="CanvasLayer/HUD"]
-visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -101.5
@@ -99,7 +97,3 @@ tile_data = PoolIntArray( 589801, -1073741824, 2, 589802, 0, 393221, 589803, 536
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Wraith" parent="." instance=ExtResource( 8 )]
-position = Vector2( 4.78448, 144.117 )
-points = 100

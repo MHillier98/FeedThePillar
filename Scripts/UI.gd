@@ -8,6 +8,7 @@ var player
 var pillar
 var pillar_light
 var target = ""
+var wraith_target = null
 
 func _ready():
 	main_scene = get_tree().current_scene
@@ -25,12 +26,24 @@ func set_target(new_target):
 	target = new_target
 
 
+func clear_target():
+	target = ""
+	wraith_target = null
+
+
 func _draw():
-	draw_pillar_player_light()
-	
 	if target == "Wraith":
-		var wraith = main_scene.find_node("Wraith")
-		draw_wraith_player_light(wraith)
+		var world_nodes = get_node("/root/World").get_children()
+		
+		if wraith_target == null:
+			for node in world_nodes:
+				if "Wraith" in node.name:
+					wraith_target = node
+		
+		if wraith_target != null:
+			draw_wraith_player_light(wraith_target)
+	else:
+		draw_pillar_player_light()
 
 
 func draw_pillar_player_light():
@@ -40,7 +53,7 @@ func draw_pillar_player_light():
 	if player_pos.distance_to(pillar_pos) < 350:
 		var distance = clamp(player_pos.distance_to(pillar_pos) / 3, 0, 100)
 		
-		# https://stackoverflow.com/questions/340209/generate-colors-between-red-and-green-for-a-power-meter
+#		https://stackoverflow.com/questions/340209/generate-colors-between-red-and-green-for-a-power-meter
 		var r = (255 * distance) / 100
 		var g = (255 * (100 - distance)) / 100
 		draw_colour = Color(r / 255, g / 255, 0)
