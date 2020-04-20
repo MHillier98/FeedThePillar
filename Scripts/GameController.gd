@@ -5,7 +5,7 @@ onready var player = $Player
 onready var pillar = $Pillar
 onready var timer_panel = $CanvasLayer/HUD/Timer
 onready var power_line = $PowerLine
-onready var notes = $PowerLine/Notes
+onready var instructions = $PowerLine/Instructions
 onready var game_over = $CanvasLayer/HUD/GameOver
 onready var restart_button = $CanvasLayer/HUD/RestartButton
 
@@ -22,7 +22,7 @@ var paused = true
 func _ready():
 	var wraith = spawn_wraith()
 	player.set_wraith(wraith)
-	notes.show()
+	instructions.show()
 	game_over.hide()
 	restart_button.hide()
 	set_process(true)
@@ -82,7 +82,8 @@ func spawn_wraith():
 
 func _on_Pillar_end_game():
 #	yield(get_tree().create_timer(2), "timeout")
-	notes.hide()
+	player.reset_head()
+	instructions.hide()
 	game_over.show()
 	restart_button.show()
 #	get_tree().paused = false

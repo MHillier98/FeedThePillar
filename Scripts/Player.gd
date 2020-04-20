@@ -4,6 +4,7 @@ extends KinematicBody2D
 export(int) var points = 0 setget set_points, get_points
 
 onready var pointsLabel = $PointsLabel
+onready var head = $HeadCollisionShape
 onready var animationPlayer = $AnimationPlayer
 onready var left_arrow = $LeftArrow
 onready var right_arrow = $RightArrow
@@ -133,3 +134,13 @@ func clear_wraith():
 
 func set_wraith(new_wraith):
 	wraith = new_wraith
+
+func reset_head():
+	if motion.x < 0:
+		get_node("HeadCollisionShape/AnimatedHead").set_flip_v(true)
+		get_node("HeadCollisionShape/AnimatedHeadAccent").set_flip_v(true)
+		head.reset_rot(180)
+	else:
+		get_node("HeadCollisionShape/AnimatedHead").set_flip_v(false)
+		get_node("HeadCollisionShape/AnimatedHeadAccent").set_flip_v(false)
+		head.reset_rot(0)

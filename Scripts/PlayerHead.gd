@@ -7,3 +7,6 @@ func _physics_process(_delta):
 
 	if (mouse_pos.x > head_pos.x + 20 or mouse_pos.x < head_pos.x - 20) and head_pos.distance_to(mouse_pos) > 10:
 		look_at(mouse_pos)
+
+func reset_rot(degrees):
+	rotation_degrees = degrees

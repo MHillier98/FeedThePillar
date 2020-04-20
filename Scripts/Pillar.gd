@@ -21,6 +21,7 @@ func _ready():
 func _physics_process(delta):
 	if started == true:
 		if points == 0:
+			pointsLabel.hide()
 			get_tree().paused = true
 			emit_signal("end_game")
 
