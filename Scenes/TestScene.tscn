@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/ScutTileSet.tres" type="TileSet" id=2]
@@ -13,7 +13,9 @@
 [ext_resource path="res://Images/BlankWhite.png" type="Texture" id=11]
 [ext_resource path="res://Resources/CRTShader.shader" type="Shader" id=12]
 [ext_resource path="res://Resources/StyleBoxFlatDarkGrey.tres" type="StyleBox" id=13]
-[ext_resource path="res://Scripts/CameraShaker.gd" type="Script" id=14]
+[ext_resource path="res://Scenes/Camera2D.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Images/Arrow.png" type="Texture" id=15]
+[ext_resource path="res://Images/Hand.png" type="Texture" id=16]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 12 )
@@ -50,19 +52,34 @@ draw_colour = Color( 0, 1, 0.316667, 1 )
 [node name="Instructions" type="Label" parent="PowerLine"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -180.0
-margin_top = 38.545
-margin_right = 180.0
-margin_bottom = 103.545
+margin_left = -190.0
+margin_top = 40.0
+margin_right = 190.0
+margin_bottom = 105.0
 custom_styles/normal = ExtResource( 8 )
 text = "KEEP IT ALIVE
-Feed the pillar with energy by standing near it!
-Collect energy from wraiths by hovering your mouse over them...
-Move with A/D or arrow keys"
+Keep the pillar alive by feeding it energy - just stand near it!
+Gather energy from wraiths by hovering your mouse over them...
+Move with Arrow Keys or A/D"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Hand" type="Sprite" parent="PowerLine/Instructions"]
+position = Vector2( 370, 40 )
+texture = ExtResource( 16 )
+
+[node name="LeftArrow" type="Sprite" parent="PowerLine/Instructions"]
+position = Vector2( 275, 55 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 15 )
+flip_h = true
+
+[node name="RightArrow" type="Sprite" parent="PowerLine/Instructions"]
+position = Vector2( 290, 55 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 15 )
 
 [node name="Light" type="Light2D" parent="."]
 position = Vector2( 320, 192 )
@@ -98,15 +115,16 @@ __meta__ = {
 }
 
 [node name="GameOver" type="Label" parent="CanvasLayer/HUD"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -100.0
+margin_left = -130.0
 margin_top = 70.0
-margin_right = 103.0
+margin_right = 130.0
 margin_bottom = 104.0
 custom_styles/normal = ExtResource( 8 )
-text = "GAME OVER
-You couldn't keep the Pillar alive..."
+text = "IT'S OVER
+You couldn't keep the Pillar alive long enough..."
 align = 1
 valign = 1
 __meta__ = {
@@ -115,6 +133,7 @@ __meta__ = {
 
 [node name="RestartButton" type="Button" parent="CanvasLayer/HUD"]
 pause_mode = 2
+visible = false
 margin_left = 275.822
 margin_top = 108.499
 margin_right = 364.822
@@ -149,12 +168,7 @@ scale = Vector2( 2, 2 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 200, 235 )
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-pause_mode = 2
-position = Vector2( 0, -62 )
-current = true
-drag_margin_h_enabled = true
-script = ExtResource( 14 )
+[node name="Camera2D" parent="Player" instance=ExtResource( 14 )]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
