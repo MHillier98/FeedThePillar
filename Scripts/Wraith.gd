@@ -48,6 +48,7 @@ func _process(delta):
 	
 	if points <= 0:
 		animatedSprite.play("death")
+		player.clear_wraith()
 		yield(animatedSprite, "animation_finished")
 		queue_free()
 

@@ -5,14 +5,36 @@ export(int) var points = 0 setget set_points, get_points
 
 onready var pointsLabel = $PointsLabel
 onready var animationPlayer = $AnimationPlayer
+onready var left_arrow = $LeftArrow
+onready var right_arrow = $RightArrow
 
 const UP = Vector2(0, -1)
 const GRAVITY = 20
-const ACCELERATION = 50
+const ACCELERATION = 30
 const MAX_SPEED = 260
 const JUMP_HEIGHT = -250
 
 var motion = Vector2()
+
+var main_scene
+var wraith
+
+func _ready():
+	main_scene = get_tree().current_scene
+	wraith = main_scene.find_node("Wraith")
+	set_process(true)
+
+
+func _process(_delta):
+	if wraith != null:
+		if wraith.global_position.x > global_position.x + 100:
+			show_arrow_right()
+		elif wraith.global_position.x < global_position.x - 100:
+			show_arrow_left()
+		else:
+			hide_arrows()
+	else:
+		hide_arrows()
 
 
 func _physics_process(_delta):
@@ -89,3 +111,25 @@ func add_points(new_points):
 func update_text():
 	if pointsLabel != null:
 		pointsLabel.text = str(get_points())
+
+
+func show_arrow_right():
+	right_arrow.show()
+	left_arrow.hide()
+
+
+func show_arrow_left():
+	right_arrow.hide()
+	left_arrow.show()
+
+
+func hide_arrows():
+	right_arrow.hide()
+	left_arrow.hide()
+
+
+func clear_wraith():
+	wraith = null
+
+func set_wraith(new_wraith):
+	wraith = new_wraith
