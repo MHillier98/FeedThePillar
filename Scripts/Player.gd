@@ -19,6 +19,7 @@ var motion = Vector2()
 var main_scene
 var wraith
 
+
 func _ready():
 	main_scene = get_tree().current_scene
 	wraith = main_scene.find_node("Wraith")
@@ -130,6 +131,7 @@ func hide_arrows():
 
 func clear_wraith():
 	wraith = null
+
 
 func set_wraith(new_wraith):
 	wraith = new_wraith

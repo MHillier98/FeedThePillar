@@ -57,16 +57,10 @@ func _on_Wraith_died():
 	power_line.clear_target()
 
 
-#func _on_Wraith_target_selected():
-#	power_line.set_target()
-
-
 func spawn_wraith():
 	var new_wraith_instance = new_wraith.instance()
 	new_wraith_instance.set_name("Wraith")
 	new_wraith_instance.connect("died", self, "_on_Wraith_died")
-#	new_wraith_instance.connect("target_selected", self, "_on_Wraith_target_selected")
-#	print(new_wraith_instance.name)
 	
 	randomize()
 	var pos_x = rand_range(-400, 1000)

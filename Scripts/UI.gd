@@ -10,6 +10,7 @@ var pillar_light
 var target = ""
 var wraith_target = null
 
+
 func _ready():
 	main_scene = get_tree().current_scene
 	player = main_scene.find_node("Player")
