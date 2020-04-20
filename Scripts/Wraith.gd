@@ -1,7 +1,7 @@
 extends Node2D
 
 
-export(int) var points = 60 setget set_points, get_points
+export(int) var points = 50 setget set_points, get_points
 
 onready var area2d = $Area2D
 onready var animatedSprite = $Area2D/AnimatedSprite
@@ -38,18 +38,18 @@ func _ready():
 func _physics_process(delta):
 	if paused == false:
 		move_self(delta)
-		
+
 		if timer > (350 * delta):
 			if points > 0:
 				if mouse_hovered:
 					drain()
 				else:
 					default()
-			
+
 			timer = 0
 		else:
 			timer += 1
-		
+
 		if points <= 0:
 			die()
 
@@ -75,14 +75,13 @@ func die():
 
 
 func move_self(delta):
-	randomize()
-	var move_x = rand_range(-80, 250)
-	
 	if global_position.x > 1200:
 		direction_modifier = -2
 	elif global_position.x < -600:
 		direction_modifier = 2
-	
+
+	randomize()
+	var move_x = rand_range(-80, 250)
 	var movement = Vector2(move_x * delta * direction_modifier, 0)
 	self.translate(movement)
 

@@ -37,28 +37,27 @@ func _physics_process(_delta):
 			hide_arrows()
 	else:
 		hide_arrows()
-	
+
 	motion.y += GRAVITY
 	var friction = false
-	
+
 	if Input.is_action_pressed('right'):
 		motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
 	elif Input.is_action_pressed('left'):
 		motion.x = max(motion.x - ACCELERATION, -MAX_SPEED)
 	else:
 		friction = true
-	
+
 	if is_on_floor():
 #		if Input.is_action_pressed('up'):
 #			motion.y = JUMP_HEIGHT
 		if friction == true:
 			motion.x = lerp(motion.x, 0, 0.2)
-		
 	else:
 		motion.x = lerp(motion.x, 0, 0.05)
 
 	motion = move_and_slide(motion, UP)
-	
+
 	if get_global_mouse_position().x < global_position.x:
 		animationPlayer.play("Look Left")
 		get_node("HeadCollisionShape/AnimatedHead").set_flip_v(true)
@@ -69,14 +68,14 @@ func _physics_process(_delta):
 		get_node("HeadCollisionShape/AnimatedHead").set_flip_v(false)
 		get_node("HeadCollisionShape/AnimatedHeadAccent").set_flip_v(false)
 #		yield(animationPlayer, "animation_finished")
-	
+
 	if motion.x < 0:
 		get_node("BodyCollisionShape/AnimatedBody").set_flip_h(true)
 		get_node("BodyCollisionShape/AnimatedBodyAccent").set_flip_h(true)
 	else:
 		get_node("BodyCollisionShape/AnimatedBody").set_flip_h(false)
 		get_node("BodyCollisionShape/AnimatedBodyAccent").set_flip_h(false)
-	
+
 	if int(round(motion.x)) != 0:
 		get_node("HeadCollisionShape/AnimatedHead").play("default")
 		get_node("HeadCollisionShape/AnimatedHeadAccent").play("default")
@@ -87,7 +86,7 @@ func _physics_process(_delta):
 		get_node("HeadCollisionShape/AnimatedHeadAccent").frame = 0
 		get_node("BodyCollisionShape/AnimatedBody").frame = 3
 		get_node("BodyCollisionShape/AnimatedBodyAccent").frame = 3
-		
+
 		get_node("HeadCollisionShape/AnimatedHead").stop()
 		get_node("HeadCollisionShape/AnimatedHeadAccent").stop()
 		get_node("BodyCollisionShape/AnimatedBody").stop()

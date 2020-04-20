@@ -12,7 +12,7 @@ var timer = 0 # timer for points
 
 var time = 0 # timer for counter
 var time_mult = 1.0
-var paused = false
+var paused = true
 
 
 func _ready():
@@ -25,9 +25,10 @@ func _physics_process(delta):
 	if timer > (450 * delta):
 		update_points()
 		timer = 0
-	
+
+	timer += 1
+
 	if not paused:
-		timer += 1
 		time += delta * time_mult
 		timerPanel.text = "Survival Time: " + str(int(time)) + "s"
 
@@ -41,12 +42,13 @@ func update_points():
 		var points = int(clamp(20 - distance, 0, 20))
 		var old_player_points = player.get_points()
 		var player_points = clamp(old_player_points - points, 0, 9999999)
-		
+
 		player.set_points(player_points)
 		var points_difference = old_player_points - player_points
-		
+
 		if points_difference > 0:
 			pillar.add_points(points_difference)
+			paused = false
 
 
 func _on_Wraith_died():
@@ -61,11 +63,11 @@ func spawn_wraith():
 	var new_wraith_instance = new_wraith.instance()
 	new_wraith_instance.set_name("Wraith")
 	new_wraith_instance.connect("died", self, "_on_Wraith_died")
-	
+
 	randomize()
 	var pos_x = rand_range(-400, 1000)
 	var pos_y = rand_range(110, 200)
-	
+
 	new_wraith_instance.position = Vector2(pos_x, pos_y)
 	add_child(new_wraith_instance)
 	return new_wraith_instance
