@@ -6,7 +6,7 @@ onready var pillar = $Pillar
 onready var timerPanel = $CanvasLayer/HUD/Timer
 onready var power_line = $PowerLine
 
-var new_wraith = preload("res://scenes/Wraith.tscn")
+var new_wraith = preload("res://Scenes/Wraith.tscn")
 
 var timer = 0 # timer for points
 
