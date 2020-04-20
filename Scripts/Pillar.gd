@@ -51,4 +51,8 @@ func add_points(new_points):
 
 func update_text():
 	if pointsLabel != null:
-		pointsLabel.text = str(get_points())
+		var points = get_points()
+		if points > 0:
+			pointsLabel.text = str(points)
+		else:
+			pointsLabel.text = ""
