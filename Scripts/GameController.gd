@@ -8,7 +8,7 @@ onready var power_line = $PowerLine
 onready var instructions = $PowerLine/Instructions
 onready var game_over = $CanvasLayer/HUD/GameOver
 onready var restart_button = $CanvasLayer/HUD/RestartButton
-
+onready var camera = $Player/Camera2D
 
 var new_wraith = preload("res://Scenes/Wraith.tscn")
 
@@ -54,11 +54,13 @@ func update_points():
 		var points_difference = old_player_points - player_points
 
 		if points_difference > 0:
+			camera.shake(0.1, 6, 3)
 			pillar.add_points(points_difference)
 			paused = false
 
 
 func _on_Wraith_died():
+	camera.shake(0.2, 17, 10)
 	player.clear_wraith()
 #	print("we need another wraith!")
 	var wraith = spawn_wraith()
@@ -81,6 +83,7 @@ func spawn_wraith():
 
 
 func _on_Pillar_end_game():
+	camera.shake(0.5, 10, 15)
 #	yield(get_tree().create_timer(2), "timeout")
 	player.reset_head()
 	instructions.hide()
@@ -90,6 +93,7 @@ func _on_Pillar_end_game():
 
 
 func _on_RestartButton_button_up():
+	camera.shake(0.2, 8, 10)
 	var new_scene = get_tree().reload_current_scene()
 	get_tree().paused = false
 	if new_scene != 0: # Error.OK
