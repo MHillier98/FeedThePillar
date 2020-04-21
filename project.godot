@@ -16,8 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Feed The Pillar"
+config/description="As a mage, it is your job to feed the pillar and keep it alive! Gather energy from the wraiths and stand near the pillar to feed it energy!
+
+Made for Ludum Dare 46"
 run/main_scene="res://Scenes/GameScene.tscn"
-config/icon="res://Images/icon.png"
+boot_splash/image="res://Images/Icon.png"
+boot_splash/bg_color=Color( 0.0941176, 0.211765, 0.47451, 1 )
+config/icon="res://Images/Icon.png"
 config/2d/gles2_use_nvidia_rect_flicker_workaround=false
 
 [display]
