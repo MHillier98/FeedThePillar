@@ -23,6 +23,8 @@ run/main_scene="res://Scenes/GameScene.tscn"
 boot_splash/image="res://Images/Icon.png"
 boot_splash/bg_color=Color( 0.0941176, 0.211765, 0.47451, 1 )
 config/icon="res://Images/Icon.png"
+config/macos_native_icon="res://Images/IconMac.icns"
+config/windows_native_icon="res://Images/IconWindows.ico"
 config/2d/gles2_use_nvidia_rect_flicker_workaround=false
 
 [display]
